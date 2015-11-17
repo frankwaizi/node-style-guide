@@ -174,7 +174,7 @@ function bank_Account() {
 常量变量和对象的静态常量属性都需要特殊表明，通过全部大写的方式来表明。
 
 尽管 Node.js / V8 支持 mozilla 的 [const][const] 关键字，
-但是不幸的是，对象的属性并不支持这个关键字，而且 const 没有包含于任何一个 ECMA 规范中。
+但是不幸的是，对象的属性并不支持这个关键字，而且 const 没有包含于任何一个 ECMA 规范中(ES6已支持)。
 
 *Right:*
 
@@ -245,26 +245,6 @@ var a = 0;
 if (a == '') {
   console.log('losing');
 }
-```
-
-[comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
-
-## 三元操作符分多行
-
-三元操作符不应该写在一行，将它分割到多行。
-
-*Right:*
-
-```js
-var foo = (a === b)
-  ? 1
-  : 2;
-```
-
-*Wrong:*
-
-```js
-var foo = (a === b) ? 1 : 2;
 ```
 
 ## 不要扩展内建类型
@@ -364,27 +344,6 @@ function isPercentage(val) {
   var isInRange = (val >= 0 && val <= 100);
   return isInRange;
 }
-```
-
-## 给你的闭包命名
-
-请尽量给你的闭包、匿名函数命名。
-这让人知道你在意这个函数，更重要的是，这将会产生可读性更好的堆栈跟踪和CPU调用信息等。
-
-*Right:*
-
-```js
-req.on('end', function onEnd() {
-  console.log('winning');
-});
-```
-
-*Wrong:*
-
-```js
-req.on('end', function() {
-  console.log('losing');
-});
 ```
 
 ## 不要嵌套闭包
@@ -519,12 +478,12 @@ stringDecoder.js
 
 ## 空格
 
-在所有的操作符前后都添加空格，`function` 关键字后面添加空格
+在所有的操作符前后都添加空格
 
 *Right:*
 
 ```js
-var add = function (a, b) {
+var add = function(a, b) {
   return a + b;
 };
 ```
